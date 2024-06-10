@@ -15,6 +15,7 @@
   <!-- <link rel="stylesheet" href="https://cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css"> -->
   <link rel="stylesheet" href="https://cdn.datatables.net/v/dt/jq-3.7.0/dt-2.0.2/datatables.min.css" />
   <link rel="stylesheet" href="yadcf.css" />
+  <link rel="stylesheet" href="style.css" />
 
   <!-- <script src="https://cdn.datatables.net/1.11.3/js/jquery.dataTables.js"></script> -->
   <script src="https://cdn.datatables.net/2.0.0/js/dataTables.min.js"></script>
@@ -73,17 +74,26 @@
   <div id="app">
     <center tststs dont peep in here :)>
       <h1>yadcf 2.0 showcase</h1>
+      <h2>(using yadcf 2.0.1.beta.8)</h2>
       <h4>
-        <a href="https://github.com/vedmack/yadcf/issues">Its a work in progress, feel free to submit yadcf 2 / Datatables 2 test pages on github
+        <a href="https://github.com/vedmack/yadcf/issues">Its a work in progress, feel free to submit yadcf 2 /
+          Datatables 2 issues on github
         </a>
       </h4>
     </center>
 
 
     <center tststs dont peep in here :)>
-      <h2>DOM table</h2>
+      <h2>DOM source example</h2>
     </center>
-    <table cellpadding="0" cellspacing="0" border="0" class="display" id="example">
+
+    <div id="external_filter_container_wrapper" class="dr-df dr-aic dr-mb-20">
+      <label>External filter for the Dates column :</label>
+      <div id="external_filter_container">
+      </div>
+    </div>
+
+    <table cellpadding="0" cellspacing="0" border="0" class="display" id="example" width="100%">
       <thead>
         <tr>
           <th>Custom</th>
@@ -210,11 +220,40 @@
       </tbody>
     </table>
 
+
     <center tststs dont peep in here :)>
-      <h2>Ajax (deep) table</h2>
+      <h2>Ajax data source (filters at the footer)</h2>
     </center>
 
-    <table cellpadding="0" cellspacing="0" border="0" class="display" id="entrys_table" width="100%">
+    <table cellpadding="0" cellspacing="0" border="0" class="display" id="ajax_table" width="100%">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Position</th>
+          <th>Office</th>
+          <th>Extn.</th>
+          <th>Start date</th>
+          <th>Salary</th>
+        </tr>
+      </thead>
+      <tfoot>
+        <tr>
+          <th>Name</th>
+          <th>Position</th>
+          <th>Office</th>
+          <th>Extn.</th>
+          <th>Start date</th>
+          <th>Salary</th>
+        </tr>
+      </tfoot>
+    </table>
+
+
+    <center tststs dont peep in here :)>
+      <h2>Ajax data source (objects)</h2>
+    </center>
+
+    <table cellpadding="0" cellspacing="0" border="0" class="display" id="ajax_deep_table" width="100%">
       <thead>
         <tr>
           <th width="20%">Rendering engine</th>
@@ -227,6 +266,7 @@
       <tbody>
       </tbody>
     </table>
+
   </div>
 </body>
 

@@ -35,12 +35,11 @@ $(function () {
     return false;
   }
 
-  let oTable = $('#example').DataTable({
+  let oTableDOM = $('#example').DataTable({
     stateSave: true
   });
 
-
-  yadcf.init(oTable, [{
+  yadcf.init(oTableDOM, [{
     column_number: 0,
     filter_type: 'custom_func',
     custom_func: myCustomFilterFunction,
@@ -66,7 +65,7 @@ $(function () {
     filter_type: "range_number_slider"
   }, {
     column_number: 2,
-
+    filter_container_id: "external_filter_container"
   }, {
     column_number: 3,
     filter_type: "auto_complete",
@@ -78,11 +77,37 @@ $(function () {
     filter_default_label: "Select tag"
   }]);
 
+  //------------------------------------------------------
+  //------------------------------------------------------
 
-  let oTable2 = $('#entrys_table').DataTable({
+  let ajax_sourceTable = new DataTable('#ajax_table', {
+    ajax: "public/ajax_table_source.txt"
+  });
+
+  yadcf.init(ajax_sourceTable, [{
+    column_number: 0
+  }, {
+    column_number: 1,
+  }, {
+    column_number: 2,
+  }, {
+    column_number: 3,
+    filter_type: "range_number"
+  }, {
+    column_number: 4,
+  }, {
+    column_number: 5,
+    filter_type: "range_number_slider",
+    ignore_char: "\\,|\\$"
+  }], 'footer');
+
+  //------------------------------------------------------
+  //------------------------------------------------------
+
+  let ajax_sourceObjectsTable = $('#ajax_deep_table').DataTable({
     stateSave: true,
     responsive: true,
-    ajax: "public/deep.txt",
+    ajax: "public/ajax_table_objects_source.txt",
     columns: [{
       "data": "engine"
     }, {
@@ -96,7 +121,7 @@ $(function () {
     }]
   });
 
-  yadcf.init(oTable2, [{
+  yadcf.init(ajax_sourceObjectsTable, [{
     column_number: 0
   }, {
     column_number: 1,
@@ -113,7 +138,6 @@ $(function () {
   }, {
     column_number: 4
   }]);
-
 
 });
 
